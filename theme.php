@@ -21,24 +21,11 @@ if (!defined('ABSPATH'))
  */
 
 
-// This array will be passed to WordPress to extract the posts
-$filters = array();
-
-// Maximum number of post to retrieve
-$filters['posts_per_page'] = (int)$theme_options['theme_max_posts'];
-if ($filters['posts_per_page'] == 0)
-    $filters['posts_per_page'] = 10;
-
-// Include only posts from specified categories. Do not filter per category is no
-// one category has been selected.
-if (is_array($theme_options['theme_categories'])) {
-    $filters['cat'] = implode(',', $theme_options['theme_categories']);
-}
 $cards = [];
 if (!empty($theme_options['theme_posttitle'])) {
     foreach ($theme_options['theme_posttitle'] as $key => $title) {
         if (!empty($title) && !empty($theme_options['theme_posttext'][$key])) {
-            $cards[] = ['title' => $title, 'img' => $theme_options['theme_postimg' . $key]['url'], 'text' => $theme_options['theme_posttext'][$key]];
+            $cards[] = ['title' => $title, 'img' => $theme_options['theme_postimg' . $key]['id'], 'text' => $theme_options['theme_posttext'][$key]];
         }
     }
 }
@@ -219,7 +206,7 @@ $posts = get_posts($filters);
                                 <div class="card">
                                     <?php if (!empty($card['img'])) { ?>
                                         <img width="550px" class="card-img"
-                                             src="<?php echo esc_attr($card['img']); ?>"/>
+                                             src="<?php echo wp_get_attachment_image_src((int)$card['img'], 'thumbnail')[0]; ?>"/>
                                         <?php
                                     }
                                     ?>
