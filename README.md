@@ -15,3 +15,5 @@ and replace the content of the registration form with registration.html.
 
 6. Choose the DAV-template for your new newsletter ;)
 
+example:
+https://dav-giessen.de/mitgliedschaft/newsletter
