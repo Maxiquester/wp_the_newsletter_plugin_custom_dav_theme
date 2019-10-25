@@ -200,7 +200,7 @@ $posts = get_posts($filters);
 
                     </td>
                     <td class="newsletter-title" width="66.66%" align="center">
-                        NEWSLETTER <?= $theme_options['theme_titel_extension'] ?>
+                        NEWSLETTER <?= esc_attr($theme_options['theme_titel_extension']) ?>
                     </td>
                 </tr>
             </table>
@@ -219,16 +219,16 @@ $posts = get_posts($filters);
                             <td width="80%">
                                 <div class="card">
                                     <?php if (!empty($card['img'])) { ?>
-                                        <img width="550px" class="card-img" src="<?php echo $card['img']; ?>"/>
+                                        <img width="550px" class="card-img" src="<?php echo esc_attr($card['img']); ?>"/>
                                         <?php
                                     }
                                     ?>
                                     <div class="card-body">
                                         <h2 class="news-head">
-                                            <?= $card['title'] ?>
+                                            <?= esc_attr($card['title']) ?>
                                         </h2>
 
-                                        <?= $card['text'] ?>
+                                        <?= esc_textarea($card['text']) ?>
                                     </div>
 
                                 </div>
