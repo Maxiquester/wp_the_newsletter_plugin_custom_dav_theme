@@ -115,15 +115,19 @@ $posts = get_posts($filters);
         .card-img {
             width: 100%;
         }
+
         table {
             border: 0;
         }
-        tr{
+
+        tr {
             border: 0;
         }
-        td{
+
+        td {
             border: 0;
         }
+
         .card {
             position: relative;
             display: flex;
@@ -133,10 +137,11 @@ $posts = get_posts($filters);
             background-color: #fff;
             background-clip: border-box;
             border: 0 solid rgba(0, 0, 0, 0.125);
-            margin-bottom: 2rem;
-            box-shadow: 2px 5px 5px rgba(0,0,0,0.25);
+            box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.25);
+            margin-bottom: 1rem;
         }
-        .praefooter-table{
+
+        .praefooter-table {
             background-color: #d8d8d8;
             padding: 1.25rem;
             box-shadow: 0 5px 5px rgba(0, 0, 0, 0.25);
@@ -169,11 +174,12 @@ $posts = get_posts($filters);
             font-weight: 500;
         }
 
-        .card-body{
+        .card-body {
             flex: 1 1 auto;
             padding: 0 1.25rem 1.25rem;
         }
-        .klettz-image{
+
+        .klettz-image {
             max-height: 200px;
         }
 
@@ -188,7 +194,7 @@ $posts = get_posts($filters);
                     <td width="33.33%">
                         <a href="<?= get_home_url() ?>" title="Zur Homepage">
 
-                            <img class="brand-img" src="<?= $theme_options['main_header_logo']['url'] ?>">
+                            <img width="140px" class="brand-img" src="<?= $theme_options['main_header_logo']['url'] ?>">
 
                         </a>
 
@@ -202,6 +208,7 @@ $posts = get_posts($filters);
     </tr>
     <tr>
         <td align="center">
+            <br>
             <table class="content-table" width="550px" border="0" cellspacing="0" cellpadding="0">
                 <?php
                 // Do not use &post, it leads to problems...
@@ -212,7 +219,7 @@ $posts = get_posts($filters);
                             <td width="80%">
                                 <div class="card">
                                     <?php if (!empty($card['img'])) { ?>
-                                        <img class="card-img" src="<?php echo $card['img']; ?>"/>
+                                        <img width="550px" class="card-img" src="<?php echo $card['img']; ?>"/>
                                         <?php
                                     }
                                     ?>
@@ -225,8 +232,10 @@ $posts = get_posts($filters);
                                     </div>
 
                                 </div>
+                                <br>
                             </td>
                         </tr>
+
                         <?php
                     }
                 }
@@ -236,10 +245,11 @@ $posts = get_posts($filters);
     </tr>
     <tr>
         <td align="center">
-            <table class ="praefooter-table" width="550px" border="0" cellspacing="0" cellpadding="0">
+            <table class="praefooter-table" width="550px" border="0" cellspacing="0" cellpadding="0">
                 <tr>
                     <td align="center">
-                        <a href="https://kletterzentrum-giessen.de"> <img class="klettz-image" src="https://dav-giessen.de/wp-content/uploads/2019/03/1806_KLZG_Logo.png"></a>
+                        <a href="https://kletterzentrum-giessen.de"> <img width="230px" class="klettz-image"
+                                                                          src="https://dav-giessen.de/wp-content/uploads/2019/03/1806_KLZG_Logo.png"></a>
                     </td>
                 </tr>
             </table>
