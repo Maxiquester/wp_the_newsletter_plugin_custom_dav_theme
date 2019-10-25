@@ -29,10 +29,15 @@ $theme_defaults = array(
 
 // Mandatory!
 $controls->merge_defaults($theme_defaults);
-
+if ($controls->action == 'emptyFields') {
+    $controls->data = $theme_defaults;
+}
 ?>
 
 <table class="form-table">
+    <?php
+    $controls->button_primary('emptyFields', 'Felder leeren');
+    ?>
     <tr>
         <td>Titel-Datum</td>
         <td>
