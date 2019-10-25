@@ -20,6 +20,7 @@ if (!defined('ABSPATH'))
     exit;
 
 $theme_defaults = array(
+    'theme_post_count' => '8',
     'theme_titel_extension' => '',
     'theme_posttitle' => [],
     'theme_posttext' => [],
@@ -35,9 +36,7 @@ if ($controls->action == 'emptyFields') {
 ?>
 
 <table class="form-table">
-    <?php
-    $controls->button_primary('emptyFields', 'Felder leeren');
-    ?>
+
     <tr>
         <td>Titel-Datum</td>
         <td>
@@ -46,15 +45,31 @@ if ($controls->action == 'emptyFields') {
             ?></td>
     </tr>
     <tr>
+        <td>Anzahl Einträge</td>
+        <td>
+            <?php
+            $controls->text('theme_post_count', 5); ?>
+
+
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <?php
+            $controls->button_primary('emptyFields', 'Felder leeren');
+            ?>
+        </td>
+    </tr>
+    <tr>
         <th colspan="2"> Bitte Einträge hier einfügen</th>
     </tr>
     <?php
-    for ($i = 0; $i < 8; $i++) {
+    for ($i = 0; $i < (int)$controls->get_value('theme_post_count'); $i++) {
         $posttitle = $controls->get_value_array('theme_posttitle')[$i];
         $text = $controls->get_value_array('theme_posttext')[$i];
         ?>
         <tr>
-            <td> Titel</td>
+            <td>Titel</td>
             <td>
                 <input name="options[theme_posttitle][<?= $i ?>]" value="<?= $posttitle ?>">
             </td>
