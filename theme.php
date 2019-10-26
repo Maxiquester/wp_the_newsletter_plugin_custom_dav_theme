@@ -195,6 +195,7 @@ $posts = get_posts($filters);
     <tr>
         <td align="center">
             <br>
+            <br>
             <table class="content-table" width="550px" border="0" cellspacing="0" cellpadding="0">
                 <?php
                 // Do not use &post, it leads to problems...
@@ -219,6 +220,7 @@ $posts = get_posts($filters);
                                     </div>
 
                                 </div>
+                                <br>
                                 <br>
                             </td>
                         </tr>
