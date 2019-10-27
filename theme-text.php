@@ -1,49 +1,52 @@
 <?php
+/*
+ *
+ *  @author  Maximilian Platzner <maxiquester@gmx.de>
+ *  This newsletter theme ist based on the DAV-Template (https://template.alpenverein.de/)
+ *
+ */
+
 global $newsletter; // Newsletter object
 global $post; // Current post managed by WordPress
 
 if (!defined('ABSPATH'))
     exit;
 
-// This file is included inside a function so it inherit all the local variables.
+/*
+ * Some variabled are prepared by Newsletter Plus and are available inside the theme,
+ * for example the theme options used to build the email body as configured by blog
+ * owner.
+ *
+ * $theme_options - is an associative array with theme options: every option starts
+ * with "theme_" as required. See the theme-options.php file for details.
+ * Inside that array there are the autmated email options as well, if needed.
+ * A special value can be present in theme_options and is the "last_run" which indicates
+ * when th automated email has been composed last time. Is should be used to find if
+ * there are now posts or not.
+ *
+ * $is_test - if true it means we are composing an email for test purpose.
+ */
 
-// Since a theme has it's own options, it must check if there is new content to send
-// out.
-// Inside $theme_options['last_time'] there is the time stamps of the last run
-// to be used to decide if we need to stop or not.
 
-$filters = array();
-
-$filters['posts_per_page'] = (int)$theme_options['max_posts'];
-if ($filters['posts_per_page'] == 0) $filters['posts_per_page'] = 10;
-
-// This theme has an option with categories to be included.
-if (is_array($theme_options['categories'])) {
-    $filters['cat'] = implode(',', $theme_options['categories']);
+$cards = [];
+if (!empty($theme_options['theme_posttitle'])) {
+    foreach ($theme_options['theme_posttitle'] as $key => $title) {
+        if (!empty($title) && !empty($theme_options['theme_posttext'][$key])) {
+            $cards[] = ['title' => $title, 'img' => $theme_options['theme_postimg' . $key]['id'], 'text' => $theme_options['theme_posttext'][$key]];
+        }
+    }
 }
-
-$posts = get_posts($filters);
-
-// Retrieve the posts asking them to WordPress
-$posts = get_posts($filters);
-
-?><?php echo $theme_options['theme_opening_text']; ?>
-
-* <?php echo $theme_options['theme_title']; ?>
-
-
+?>
+NEWSLETTER <?= esc_attr($theme_options['theme_titel_extension']) ?>
 <?php
-foreach ($posts as $post) {
-    // Setup the post (WordPress requirement)
-    setup_postdata($post);
-    ?>
-    <?php the_title(); ?>
-
-    <?php the_permalink(); ?>
-
-
-<?php } ?>
-
-
-<?php echo $theme_options['theme_footer_text']; ?>
-
+if (!empty($cards)) {
+    foreach ($cards as $card) {
+        ?>
+        <?= esc_attr($card['title']) ?>
+        <?= esc_textarea($card['text']) ?>
+        <?php
+    }
+}
+?>
+Sieht die Mail komisch aus? Schaue sie dir im Internet an.
+Um dich von unserem Newsletter abzumelden klicke bitte hier.
