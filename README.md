@@ -4,7 +4,7 @@ Installation:
 
 1. Install The Newsletter plugin (https://www.thenewsletterplugin.com/)
 
-2. Clone this repo to {WP-DIR}/wp-content/plugins/newsletter/emails/themes/DAV 
+2. Clone this repo to {WP-DIR}/wp-content/extensions/newsletter/emails/themes/DAV 
 
 3. Customize the theme.php if needed
 
