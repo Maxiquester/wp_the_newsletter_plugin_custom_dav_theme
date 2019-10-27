@@ -2,6 +2,12 @@
 global $newsletter; // Newsletter object
 global $post; // Current post managed by WordPress
 
+/// Custom Variables
+$footerImage = [
+    'imgsrc' => esc_url('https://dav-giessen.de/wp-content/uploads/2019/03/1806_KLZG_Logo.png'),
+    'imglink' => esc_url('https://kletterzentrum-giessen.de')
+];
+
 if (!defined('ABSPATH'))
     exit;
 
@@ -42,18 +48,18 @@ $posts = get_posts($filters);
             font-family: 'Fira Sans';
             font-style: normal;
             font-weight: 200;
-            src: url('https://dav-giessen.de/wp-content/themes/dav/assets/fonts/fira/fira-sans-v8-latin-200.eot');
+            src: url(<?=home_url('/wp-content/themes/dav/assets/fonts/fira/fira-sans-v8-latin-200.eot');?>);
             src: local('Fira Sans ExtraLight'), local('FiraSans-ExtraLight'),
-            url('https://dav-giessen.de/wp-content/themes/dav/assets/fonts/fira/fira-sans-v8-latin-200.eot?#iefix') format('embedded-opentype'), url('https://dav-giessen.de/wp-content/themes/dav/assets/fonts/fira/fira-sans-v8-latin-200.woff2') format('woff2'), url('https://dav-giessen.de/wp-content/themes/dav/assets/fonts/fira/fira-sans-v8-latin-200.woff') format('woff'), url('https://dav-giessen.de/wp-content/themes/dav/assets/fonts/fira/fira-sans-v8-latin-200.ttf') format('truetype'), url('https://dav-giessen.de/wp-content/themes/dav/assets/fonts/fira/fira-sans-v8-latin-200.svg#FiraSans') format('svg');
+            url(<?=home_url('/wp-content/themes/dav/assets/fonts/fira/fira-sans-v8-latin-200.eot?#iefix');?>) format('embedded-opentype'), url(<?=home_url('/wp-content/themes/dav/assets/fonts/fira/fira-sans-v8-latin-200.woff2');?>) format('woff2'), url('https://dav-giessen.de/wp-content/themes/dav/assets/fonts/fira/fira-sans-v8-latin-200.woff') format('woff'), url(<?=home_url('/wp-content/themes/dav/assets/fonts/fira/fira-sans-v8-latin-200.ttf');?>) format('truetype'), url(<?=home_url('/wp-content/themes/dav/assets/fonts/fira/fira-sans-v8-latin-200.svg#FiraSans');?>) format('svg');
         }
 
         @font-face {
             font-family: 'Fira Sans';
             font-style: normal;
             font-weight: 400;
-            src: url('https://dav-giessen.de/wp-content/themes/dav/assets/fonts/fira/fira-sans-v8-latin-regular.eot');
+            src: url(<?=home_url('/wp-content/themes/dav/assets/fonts/fira/fira-sans-v8-latin-regular.eot');?>);
             src: local('Fira Sans Regular'), local('FiraSans-Regular'),
-            url('https://dav-giessen.de/wp-content/themes/dav/assets/fonts/fira/fira-sans-v8-latin-regular.eot?#iefix') format('embedded-opentype'), url('https://dav-giessen.de/wp-content/themes/dav/assets/fonts/fira/fira-sans-v8-latin-regular.woff2') format('woff2'), url('https://dav-giessen.de/wp-content/themes/dav/assets/fonts/fira/fira-sans-v8-latin-regular.woff') format('woff'), url('https://dav-giessen.de/wp-content/themes/dav/assets/fonts/fira/fira-sans-v8-latin-regular.ttf') format('truetype'), url('https://dav-giessen.de/wp-content/themes/dav/assets/fonts/fira/fira-sans-v8-latin-regular.svg#FiraSans') format('svg');
+            url(<?=home_url('/wp-content/themes/dav/assets/fonts/fira/fira-sans-v8-latin-regular.eot?#iefix');?>) format('embedded-opentype'), url(<?=home_url('/wp-content/themes/dav/assets/fonts/fira/fira-sans-v8-latin-regular.woff2');?>) format('woff2'), url(<?=home_url('/wp-content/themes/dav/assets/fonts/fira/fira-sans-v8-latin-regular.woff');?>) format('woff'), url(<?=home_url('/wp-content/themes/dav/assets/fonts/fira/fira-sans-v8-latin-regular.ttf');?>) format('truetype'), url(<?=home_url('/wp-content/themes/dav/assets/fonts/fira/fira-sans-v8-latin-regular.svg#FiraSans');?>) format('svg');
         }
 
 
@@ -61,9 +67,9 @@ $posts = get_posts($filters);
             font-family: 'Fira Sans';
             font-style: normal;
             font-weight: 500;
-            src: url('https://dav-giessen.de/wp-content/themes/dav/assets/fonts/fira/fira-sans-v8-latin-500.eot');
+            src: url(<?=home_url('/wp-content/themes/dav/assets/fonts/fira/fira-sans-v8-latin-500.eot');?>);
             src: local('Fira Sans SemiBold'), local('FiraSans-SemiBold'),
-            url('https://dav-giessen.de/wp-content/themes/dav/assets/fonts/fira/fira-sans-v8-latin-500.eot?#iefix') format('embedded-opentype'), ! *IE6-IE8 *! url('https://dav-giessen.de/wp-content/themes/dav/assets/fonts/fira/fira-sans-v8-latin-500.woff2') format('woff2'), url('https://dav-giessen.de/wp-content/themes/dav/assets/fonts/fira/fira-sans-v8-latin-500.woff') format('woff'), url('https://dav-giessen.de/wp-content/themes/dav/assets/fonts/fira/fira-sans-v8-latin-500.ttf') format('truetype'), url('https://dav-giessen.de/wp-content/themes/dav/assets/fonts/fira/fira-sans-v8-latin-500.svg#FiraSans') format('svg');
+            url(<?=home_url('/wp-content/themes/dav/assets/fonts/fira/fira-sans-v8-latin-500.eot?#iefix');?>) format('embedded-opentype'), ! *IE6-IE8 *! url(<?=home_url('/wp-content/themes/dav/assets/fonts/fira/fira-sans-v8-latin-500.woff2');?>) format('woff2'), url(<?=home_url('/wp-content/themes/dav/assets/fonts/fira/fira-sans-v8-latin-500.woff');?>) format('woff'), url(<?=home_url('/wp-content/themes/dav/assets/fonts/fira/fira-sans-v8-latin-500.ttf');?>) format('truetype'), url(<?=home_url('/wp-content/themes/dav/assets/fonts/fira/fira-sans-v8-latin-500.svg#FiraSans');?>) format('svg');
         }
 
         .newsletter-table {
@@ -82,9 +88,18 @@ $posts = get_posts($filters);
         body {
             color: #3F3F3F;
             font-family: 'Fira Sans', Arial, sans-serif;
-            background-color: white;
-            background: url('https://dav-giessen.de/wp-content/uploads/2019/03/backgorund-topo-dav.jpg');
-            font-size: 1rem;
+        <?php
+        if(get_theme_mod('dav_background_color')) {
+
+            $style .= 'background-color: '.get_theme_mod('dav_background_color').';';
+        }
+
+        if(get_theme_mod('dav_backgroundimage')) {
+
+            $style .= 'background: url('.get_theme_mod('dav_backgroundimage').'); background-position: top center; background-repeat: repeat;';
+        }
+        echo $style;
+        ?> font-size: 1rem;
             line-height: 1.5;
         }
 
@@ -237,8 +252,8 @@ $posts = get_posts($filters);
             <table class="praefooter-table" width="550px" border="0" cellspacing="0" cellpadding="0">
                 <tr>
                     <td align="center">
-                        <a href="https://kletterzentrum-giessen.de"> <img width="230px" class="klettz-image"
-                                                                          src="https://dav-giessen.de/wp-content/uploads/2019/03/1806_KLZG_Logo.png"></a>
+                        <a href="<?= $footerImage['imglink'] ?>"> <img width="230px" class="klettz-image"
+                                                                       src="<?= $footerImage['imgsrc'] ?>"></a>
                     </td>
                 </tr>
             </table>
