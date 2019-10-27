@@ -2,7 +2,7 @@
 global $newsletter; // Newsletter object
 global $post; // Current post managed by WordPress
 
-/// Custom Variables
+/// Customization Variables
 $footerImage = [
     'imgsrc' => esc_url('https://dav-giessen.de/wp-content/uploads/2019/03/1806_KLZG_Logo.png'),
     'imglink' => esc_url('https://kletterzentrum-giessen.de')
@@ -91,7 +91,7 @@ $posts = get_posts($filters);
         <?php
         if(get_theme_mod('dav_background_color')) {
 
-            $style .= 'background-color: '.get_theme_mod('dav_background_color').';';
+            $style = 'background-color: '.get_theme_mod('dav_background_color').';';
         }
 
         if(get_theme_mod('dav_backgroundimage')) {
