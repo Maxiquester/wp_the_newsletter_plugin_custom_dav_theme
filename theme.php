@@ -1,4 +1,11 @@
 <?php
+/*
+ *
+ *  @author  Maximilian Platzner <maxiquester@gmx.de>
+ *  This newsletter theme ist based on the DAV-Template (https://template.alpenverein.de/)
+ *
+ */
+
 global $newsletter; // Newsletter object
 global $post; // Current post managed by WordPress
 
