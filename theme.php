@@ -9,11 +9,17 @@
 global $newsletter; // Newsletter object
 global $post; // Current post managed by WordPress
 
-/// Customization Variables
+/**
+ **********************************
+ * Customization Variables
+**/
 $footerImage = [
     'imgsrc' => esc_url('https://dav-giessen.de/wp-content/uploads/2019/03/1806_KLZG_Logo.png'),
     'imglink' => esc_url('https://kletterzentrum-giessen.de')
 ];
+/**
+ **********************************
+ **/
 
 if (!defined('ABSPATH'))
     exit;
@@ -43,9 +49,6 @@ if (!empty($theme_options['theme_posttitle'])) {
     }
 }
 
-
-// Retrieve the posts asking them to WordPress
-$posts = get_posts($filters);
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
