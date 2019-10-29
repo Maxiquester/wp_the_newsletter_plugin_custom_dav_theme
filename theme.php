@@ -12,7 +12,7 @@ global $post; // Current post managed by WordPress
 /**
  **********************************
  * Customization Variables
-**/
+ **/
 $footerImage = [
     'imgsrc' => esc_url('https://dav-giessen.de/wp-content/uploads/2019/03/1806_KLZG_Logo.png'),
     'imglink' => esc_url('https://kletterzentrum-giessen.de')
@@ -44,7 +44,7 @@ $cards = [];
 if (!empty($theme_options['theme_posttitle'])) {
     foreach ($theme_options['theme_posttitle'] as $key => $title) {
         if (!empty($title) && !empty($theme_options['theme_posttext'][$key])) {
-            $cards[] = ['title' => $title, 'img' => $theme_options['theme_postimg' . $key]['id'], 'text' => $theme_options['theme_posttext'][$key]];
+            $cards[] = ['title' => $title, 'img' => $theme_options['theme_postimg' . $key]['id'], 'imglink' => $theme_options['theme_imglink'][$key], 'text' => $theme_options['theme_posttext'][$key]];
         }
     }
 }
@@ -230,10 +230,22 @@ if (!empty($theme_options['theme_posttitle'])) {
                         <tr>
                             <td width="80%">
                                 <div class="card">
-                                    <?php if (!empty($card['img'])) { ?>
+                                    <?php
+                                    if (!empty($card['img'])) {
+                                        if (!empty($card['imglink'])) {
+                                            ?>
+                                            <a href="<?= $card['imglink'] ?>">
+                                            <?php
+                                        }
+                                        ?>
                                         <img width="550px" class="card-img"
                                              src="<?php echo wp_get_attachment_image_src((int)$card['img'], 'thumbnail')[0]; ?>"/>
                                         <?php
+                                        if (!empty($card['imglink'])) {
+                                            ?>
+                                            </a>
+                                            <?php
+                                        }
                                     }
                                     ?>
                                     <div class="card-body">

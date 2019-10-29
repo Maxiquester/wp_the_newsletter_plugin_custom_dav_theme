@@ -24,8 +24,17 @@ $theme_defaults = array(
     'theme_titel_extension' => '',
     'theme_posttitle' => [],
     'theme_posttext' => [],
+    'theme_imglink' => [],
     'theme_postimg0' => null,
-    'theme_postimg1' => null, 'theme_postimg2' => null, 'theme_postimg3' => null, 'theme_postimg4' => null, 'theme_postimg5' => null, 'theme_postimg6' => null, 'theme_postimg7' => null
+    'theme_postimg1' => null,
+    'theme_postimg2' => null,
+    'theme_postimg3' => null,
+    'theme_postimg4' => null,
+    'theme_postimg5' => null,
+    'theme_postimg6' => null,
+    'theme_postimg7' => null,
+    'theme_postimg8' => null
+
 );
 
 // Mandatory!
@@ -67,6 +76,8 @@ if ($controls->action == 'emptyFields') {
     for ($i = 0; $i < (int)$controls->get_value('theme_post_count'); $i++) {
         $posttitle = $controls->get_value_array('theme_posttitle')[$i];
         $text = $controls->get_value_array('theme_posttext')[$i];
+        $imglink = $controls->get_value_array('theme_imglink')[$i];
+
         ?>
         <tr>
             <td>Titel</td>
@@ -82,6 +93,14 @@ if ($controls->action == 'emptyFields') {
                 <?php
                 $controls->media('theme_postimg' . $i);
                 ?>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Bildlink (optional)
+            </td>
+            <td>
+                <input name="options[theme_imglink][<?= $i ?>]" value="<?= $imglink ?>">
             </td>
         </tr>
         <tr>
